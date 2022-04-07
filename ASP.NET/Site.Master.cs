@@ -15,7 +15,7 @@ namespace ASP.NET
             if (!Component.IsLogedIn)
                 lnkLogIn.Text = "Login";
             else
-                lnkLogIn.Text = "Logouot";
+                lnkLogIn.Text = "Logout";
         }
 
         protected void lnkLogIn_Click(object sender, EventArgs e)

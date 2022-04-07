@@ -39,8 +39,6 @@ namespace ASP.NET
                 }
                 
             }
-           
-            System.Diagnostics.Debug.WriteLine("ZG");
         }
     }
 }

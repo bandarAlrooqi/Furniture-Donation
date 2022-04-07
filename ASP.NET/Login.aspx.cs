@@ -26,6 +26,7 @@ namespace ASP.NET
                 else
                 {
                     Component.IsLogedIn = true;
+                    Component.user = record;
                     Lerror.Visible = !true;
                     Response.Redirect("default.aspx");
                 }
