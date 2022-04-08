@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Donate.aspx.cs" Inherits="ASP.NET.Donate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <section class="vh-100"> 
-        <h2 ID="TitleH" runat="server">Donate</h2>
+        <h2>Donate</h2>
         <hr ID="Line" runat="server" />
     <div class="mb-3">
         <label for="TitleT">Title</label>
