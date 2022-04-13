@@ -30,12 +30,11 @@ namespace ASP.NET
                 try
                 {
                     entity.SaveChanges(); // exception will occure in case of dublicated key 
-                    Lerror.Visible = false;
+                    Line.InnerHtml = "<div class='alert alert-success' role='alert'>Thank you for your regestraion.</div>";
                 }
                 catch (Exception ex)
                 {
-                    Lerror.Text = "Email address already exisit.";
-                    Lerror.Visible = true;
+                    Line.InnerHtml = "<div class='alert alert-danger' role='alert'>Email is already used.</div>";
                 }
                 
             }

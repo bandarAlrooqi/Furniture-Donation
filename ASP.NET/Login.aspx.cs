@@ -9,9 +9,11 @@ namespace ASP.NET
 {
     public partial class Login : System.Web.UI.Page
     {
+        static string page = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack && Request.UrlReferrer != null)
+                page = Request.UrlReferrer.ToString();
         }
         protected void submit_Click(object sender, EventArgs e)
         {
@@ -20,15 +22,13 @@ namespace ASP.NET
                 var record = entity.users.FirstOrDefault(x => x.Email==tEmail.Text && x.Password==tPassword.Text);
                if(record == null)
                 {
-                    Lerror.Visible = true;
-                    Lerror.Text = "Incorrect email or password.";
+                    Line.InnerHtml = "<div class='alert alert-danger' role='alert'>Incorrect email or password.</div>";
                 }
                 else
                 {
                     Component.IsLogedIn = true;
                     Component.user = record;
-                    Lerror.Visible = !true;
-                    Response.Redirect("default.aspx");
+                    Response.Redirect(page == null?"default":page);
                 }
             }
 

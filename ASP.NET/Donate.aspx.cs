@@ -21,7 +21,6 @@ namespace ASP.NET
         protected void SubmitB_Click(object sender, EventArgs e)
         {
             var fileName = Upload.FileName.Substring(0, Upload.FileName.LastIndexOf(".") + 1) + DateTimeOffset.UtcNow.ToUnixTimeSeconds() + Upload.FileName.Substring(Upload.FileName.LastIndexOf(".")); // make it unique ! 
-            //fileName = fileName.Replace(" ", "");
             using (var entity = new donationEntities())
             {
                 entity.goods.Add(new good

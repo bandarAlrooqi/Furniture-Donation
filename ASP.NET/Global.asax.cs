@@ -18,6 +18,11 @@ namespace ASP.NET
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            //using (var entity = new donationEntities())
+            //{
+            //    foreach (var item in entity.goods)
+            //       Component.goods.Add(item);
+            //}
         }
     }
 }
