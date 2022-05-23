@@ -19,7 +19,8 @@ namespace ASP.NET
         {
             using (var entity = new donationEntities())
             {
-                var record = entity.users.FirstOrDefault(x => x.Email==tEmail.Text && x.Password==tPassword.Text);
+                string encreptedPassword = Component.Encryptor(tPassword.Text);
+               var record = entity.users.FirstOrDefault(x => x.Email==tEmail.Text && x.Password == encreptedPassword);
                if(record == null)
                 {
                     Line.InnerHtml = "<div class='alert alert-danger' role='alert'>Incorrect email or password.</div>";

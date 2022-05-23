@@ -40,7 +40,6 @@ namespace ASP.NET
                     var cardBody = new HtmlGenericControl("div");
                     cardBody.Attributes["class"] = "card-body";
                     cardBody.InnerHtml = "<h5 class='card-title'>" + item.Title + "</h5> <hr>" + "<p class='card-text'>" + item.Description + "</p>";
-                    bool zg = item.Status == "Not Available";
                     if (item.Status == "Not Available")
                         cardBody.InnerHtml += "<em>Requested by: " + GetUserName(item.RequestedBy) + "</em>";
                     else if (Component.IsLogedIn && item.user == Component.user.Email)
@@ -83,10 +82,7 @@ namespace ASP.NET
             {
                 using (var entity = new donationEntities())
                 {
-                    
-                    
                     string value = (sender as Button).CommandArgument;
-                    System.Diagnostics.Debug.WriteLine("VALUE: " + value);
                     var item = entity.goods.FirstOrDefault(id => value == id.Id.ToString());
                     item.Status = "Not Available";
                     item.RequestedBy = Component.user.Email;
@@ -100,7 +96,6 @@ namespace ASP.NET
         }
         protected void Delete_click(object sender, EventArgs e)
         {
-
             try
             {
                 using (var entity = new donationEntities())

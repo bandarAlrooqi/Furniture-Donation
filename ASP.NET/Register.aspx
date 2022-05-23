@@ -5,6 +5,13 @@
                 <div class="form-group">
                 <label for="tName">Name</label>
                 <asp:TextBox ID="tName" runat="server" placeholder="Mohammed" data-rule-email="true" class ="form-control" required="true"></asp:TextBox>
+            <asp:RegularExpressionValidator
+        id="RegularExpressionValidatorName"
+        ControlToValidate="tName"
+        Text="Enter a valid name"
+        Display="Dynamic" ForeColor="Red"
+        ValidationExpression="^[aA-zZ]{3}[aA-zZ]*" 
+        Runat="server" />    
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -50,7 +57,7 @@
                  <div class="form-group">
                 <label for="Type">Type</label>
                  <asp:DropDownList ID="TypeList" runat="server" required="true" class="form-control">
-                     <asp:ListItem disabled>Please Select</asp:ListItem>
+                     <asp:ListItem disabled Selected>Please Select</asp:ListItem>
                      <asp:ListItem>Dooner</asp:ListItem>
                      <asp:ListItem>Needy</asp:ListItem>
                  </asp:DropDownList>

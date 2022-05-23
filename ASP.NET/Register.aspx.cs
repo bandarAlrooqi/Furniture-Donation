@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ASP.NET
 {
@@ -11,9 +6,8 @@ namespace ASP.NET
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
-
         protected void Submit_Click(object sender, EventArgs e)
         {
             using (var entity = new donationEntities())
@@ -23,16 +17,16 @@ namespace ASP.NET
                     Email = tEmail.Text,
                     Name = tName.Text,
                     Type = TypeList.SelectedValue,
-                    Password = tPassword.Text,
+                    Password = Component.Encryptor(tPassword.Text), // encrept password 
                     phone = Phone.Text,
                     Address = Address.Text
                 });
                 try
                 {
-                    entity.SaveChanges(); // exception will occure in case of dublicated key 
+                    entity.SaveChanges();
                     Line.InnerHtml = "<div class='alert alert-success' role='alert'>Thank you for your regestraion.</div>";
                 }
-                catch (Exception ex)
+                catch (Exception ex) // exception will occure in case of dublicated key 
                 {
                     Line.InnerHtml = "<div class='alert alert-danger' role='alert'>Email is already used.</div>";
                 }
